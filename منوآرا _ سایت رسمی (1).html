@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>منوآرا | منوی دیجیتال و سایت برای کافه‌های محله</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#fbf6ef;--surface:#fff;--text:#2b1d14;--muted:#6f5d50;--brand:#b4531a;--brand2:#e8a25c;--line:#eadfd1;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a120d;--surface:#251a13;--text:#f5ebdf;--muted:#c2ad9a;--brand:#e8894a;--brand2:#b4531a;--line:#3a2a1e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1a120d;--surface:#251a13;--text:#f5ebdf;--muted:#c2ad9a;--brand:#e8894a;--brand2:#b4531a;--line:#3a2a1e;color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.9}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{max-width:1000px;margin:auto;display:flex;align-items:center;gap:12px;padding:8px 16px}
+.logo{font-weight:800;color:var(--brand);font-size:1.2rem;text-decoration:none;white-space:nowrap}
+nav{display:flex;gap:4px;overflow-x:auto;flex:1}
+nav a{color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:99px;font-size:.9rem;white-space:nowrap}
+nav a:hover{background:var(--line)}
+section{max-width:1000px;margin:auto;padding:48px 16px}
+h1{font-size:clamp(1.7rem,6vw,2.8rem);line-height:1.5;margin:0 0 12px}
+h2{font-size:1.5rem;margin:0 0 8px}
+.lead{color:var(--muted);margin:0 0 24px}
+.btn{display:inline-block;background:var(--brand);color:#fff;border:0;padding:10px 22px;border-radius:12px;font:inherit;font-weight:600;text-decoration:none;cursor:pointer}
+.btn.alt{background:transparent;color:var(--brand);border:1px solid var(--brand)}
+.hero{display:grid;gap:32px;align-items:center}
+@media(min-width:760px){.hero{grid-template-columns:1.3fr 1fr}}
+.phone{width:210px;margin:auto;background:var(--surface);border:6px solid var(--text);border-radius:30px;padding:16px 14px;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.phone b{display:block;color:var(--brand);margin-bottom:6px}
+.phone div{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:5px 0;font-size:.85rem}
+.qr{width:64px;height:64px;margin:12px auto 0;background:conic-gradient(var(--text) 25%,var(--surface) 0 50%,var(--text) 0 75%,var(--surface) 0) 0 0/16px 16px;border:3px solid var(--text);border-radius:6px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+.card h3{margin:0 0 6px;font-size:1.05rem}
+.card p{margin:0;color:var(--muted);font-size:.92rem}
+.tag{display:inline-block;font-size:.75rem;background:var(--line);color:var(--muted);padding:1px 10px;border-radius:99px;margin-bottom:8px}
+.tag.hot{background:var(--brand);color:#fff}
+.price{font-size:1.4rem;font-weight:800;color:var(--brand);margin:8px 0}
+.card ul{padding:0 18px 0 0;margin:8px 0 0;color:var(--muted);font-size:.9rem}
+.steps{counter-reset:s}.steps .card::before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--brand2);color:#fff;font-weight:700;margin-bottom:8px}
+.table-wrap{overflow-x:auto}
+form{display:grid;gap:12px;max-width:560px}
+label{font-size:.9rem;font-weight:600}
+input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);font:inherit}
+.hp{position:absolute;left:-9999px}
+#msg{min-height:1.5em;font-weight:600}
+.err{color:#c0392b}.ok{color:#2e8b57}
+footer{border-top:1px solid var(--line);text-align:center;color:var(--muted);padding:24px 16px;font-size:.85rem}
+.road{display:flex;gap:10px;flex-wrap:wrap}
+.road .card{flex:1 1 200px}
+.road .now{border-color:var(--brand)}
+</style>
+</head>
+<body>
+<header><div class="bar"><a class="logo" href="#home">منوآرا</a>
+<nav id="nav"></nav></div></header>
+
+<section id="home"><div class="hero"><div>
+<span class="tag hot" id="tagline"></span>
+<h1>منوی دیجیتال و سایت برای کافه‌های محله</h1>
+<p class="lead">با یک کدکیوآر، منوی کافه‌ات روی گوشی مشتری باز می‌شود. سایت و لوگو هم داری، در چند روز و با قیمت منصفانه.</p>
+<a class="btn" href="#order">ثبت سفارش</a> <a class="btn alt" href="#pricing">دیدن بسته‌ها</a>
+</div>
+<div class="phone"><b>کافه نمونه</b><div><span>اسپرسو</span><span>۸۵</span></div><div><span>لاته</span><span>۱۱۰</span></div><div><span>چای ماسالا</span><span>۹۰</span></div><div><span>کیک شکلاتی</span><span>۱۲۰</span></div><div class="qr" style="display:block"></div></div></div></section>
+
+<section id="services"><h2>خدمات</h2><p class="lead">سه خدمت هسته و چند افزودنی. هر خدمت ماژولی است و بعداً خدمت تازه اضافه می‌شود.</p><div class="grid" id="svc"></div></section>
+<section id="how"><h2>روش کار</h2><div class="grid steps" id="steps"></div></section>
+<section id="portfolio"><h2>نمونه‌کارها</h2><p class="lead">نمونه‌های تمرینی با برچسب مشخص از پروژه‌های واقعی جدا هستند.</p><div class="grid" id="port"></div></section>
+<section id="pricing"><h2>تعرفه‌ها</h2><p class="lead">قیمت‌ها پیشنهادی‌اند و پس از گفت‌وگو با کافه‌داران نهایی می‌شوند. دامنه اختصاصی و عکاسی حرفه‌ای شامل نیست.</p><div class="grid" id="pk"></div></section>
+<section id="about"><h2>درباره ما</h2><p class="lead">تیم پنج‌نفره‌ای هستیم که طراحی، برنامه‌نویسی و بازاریابی را با کمک هوش مصنوعی ترکیب می‌کنیم. هوش مصنوعی سرعت می‌دهد، کیفیت و شناخت کافه‌ها تفاوت اصلی ماست. قرارداد و پرداخت با مشتری واقعی با همراهی سرپرست بزرگسال انجام می‌شود.</p>
+<h2>مسیر رشد</h2><div class="road" id="road"></div></section>
+
+<section id="order"><h2>ثبت سفارش یا درخواست مشاوره</h2><p class="lead">فرم را پر کنید، با شما تماس می‌گیریم.</p>
+<form id="f" novalidate>
+<div><label for="n">نام شما</label><input id="n" name="name" required></div>
+<div><label for="b">نام کافه یا کسب‌وکار</label><input id="b" name="business" required></div>
+<div><label for="p">شماره تماس</label><input id="p" name="phone" inputmode="tel" required></div>
+<div><label for="k">بسته موردنظر</label><select id="k" name="package"></select></div>
+<div><label for="m">توضیحات</label><textarea id="m" name="message" rows="3"></textarea></div>
+<input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+<button class="btn" type="submit">ارسال درخواست</button><div id="msg" role="status"></div>
+</form></section>
+
+<footer>منوآرا، نسخه ۱ | ساخته‌شده با HTML، CSS و JavaScript | نمایش آنلاین روی GitHub Pages با HTTPS</footer>
+
+<script>
+/* همه محتوای سایت اینجاست. برای گسترش فقط همین بخش را ویرایش کنید. */
+const SITE={
+ formEndpoint:"", // بعد از ساخت فرم در Formspree، آدرس آن را اینجا بگذارید
+ phase:1,
+ sections:[["home","خانه"],["services","خدمات"],["portfolio","نمونه‌کارها"],["pricing","تعرفه‌ها"],["about","درباره ما"],["order","سفارش"]],
+ services:[
+  {t:"منوی دیجیتال و کدکیوآر",d:"منوی زیبا و به‌روز که با اسکن کد روی گوشی باز می‌شود.",core:1},
+  {t:"سایت معرفی",d:"سایت سبک و موبایل‌پسند با آدرس، ساعت کار و گالری.",core:1},
+  {t:"لوگو و هویت ساده",d:"لوگو، رنگ و فونت متناسب با فضای کافه.",core:1},
+  {t:"کلیپ معرفی",d:"تیزر کوتاه برای شبکه‌های اجتماعی.",core:0},
+  {t:"طرح پست و بنر",d:"قالب‌های آماده برای تبلیغ منو و تخفیف‌ها.",core:0}],
+ steps:[["گفت‌وگو","نیاز و بودجه کافه را می‌شنویم."],["طراحی","نمونه اولیه را می‌فرستیم."],["اصلاح","طبق بازخورد شما اصلاح می‌کنیم."],["تحویل","منو و سایت آنلاین و کدکیوآر آماده می‌شود."]],
+ portfolio:[
+  {t:"کافه نمونه",k:"تمرینی",d:"منو، سایت و لوگوی کامل برای یک کافه فرضی."},
+  {t:"مغازه آشنا",k:"واقعی",d:"کاتالوگ آنلاین ساده. به‌زودی با اجازه صاحب کار."},
+  {t:"رستوران نمونه",k:"تمرینی",d:"منوی دودسته‌ای با عکس غذا. در دست ساخت."}],
+ packages:[
+  {n:"پایه",p:"۵۰۰ هزار تومان",time:"۳ روز",rev:"۲ اصلاح",f:["منوی دیجیتال","کدکیوآر"]},
+  {n:"حرفه‌ای",p:"۲ میلیون تومان",time:"۷ روز",rev:"۳ اصلاح",f:["همه امکانات پایه","سایت معرفی","لوگوی ساده"],hot:1},
+  {n:"کامل",p:"۳ میلیون و ۵۰۰ هزار تومان",time:"۱۲ روز",rev:"۳ اصلاح",f:["همه امکانات حرفه‌ای","کلیپ ۱۵ ثانیه‌ای","۵ طرح پست"]}],
+ roadmap:[
+  ["فاز ۱ (اکنون)","سایت ایستا، فرم سفارش، سه بسته برای کافه‌ها"],
+  ["فاز ۲","پنل ساده برای مدیریت سفارش‌ها و ویرایش منو"],
+  ["فاز ۳","پشتیبانی ماهانه و گسترش به فروشگاه‌ها و آموزشگاه‌ها"],
+  ["فاز ۴","پرداخت آنلاین و حساب کاربری"]]
+};
+const $=s=>document.querySelector(s);
+const el=(h)=>h;
+$("#nav").innerHTML=SITE.sections.map(([i,t])=>`<a href="#${i}">${t}</a>`).join("");
+$("#tagline").textContent="ویژه کافه‌ها و رستوران‌های کوچک";
+$("#svc").innerHTML=SITE.services.map(s=>`<div class="card"><span class="tag${s.core?' hot':''}">${s.core?'خدمت اصلی':'افزودنی'}</span><h3>${s.t}</h3><p>${s.d}</p></div>`).join("");
+$("#steps").innerHTML=SITE.steps.map(([t,d])=>`<div class="card"><h3>${t}</h3><p>${d}</p></div>`).join("");
+$("#port").innerHTML=SITE.portfolio.map(s=>`<div class="card"><span class="tag${s.k==='واقعی'?' hot':''}">${s.k}</span><h3>${s.t}</h3><p>${s.d}</p></div>`).join("");
+$("#pk").innerHTML=SITE.packages.map(p=>`<div class="card" ${p.hot?'style="border-color:var(--brand)"':''}>${p.hot?'<span class="tag hot">پیشنهادی</span>':''}<h3>${p.n}</h3><div class="price">${p.p}</div><p>زمان تحویل: ${p.time} | ${p.rev}</p><ul>${p.f.map(x=>`<li>${x}</li>`).join("")}</ul></div>`).join("");
+$("#road").innerHTML=SITE.roadmap.map(([t,d],i)=>`<div class="card ${i===SITE.phase-1?'now':''}"><h3>${t}</h3><p>${d}</p></div>`).join("");
+$("#k").innerHTML=SITE.packages.map(p=>`<option>${p.n}</option>`).join("")+"<option>هنوز نمی‌دانم</option>";
+$("#f").addEventListener("submit",async e=>{
+ e.preventDefault();const f=e.target,m=$("#msg");
+ if(f.website.value)return;
+ const name=f.name.value.trim(),biz=f.business.value.trim(),ph=f.phone.value.replace(/[\s-]/g,"");
+ if(!name||!biz){m.className="err";m.textContent="نام و نام کسب‌وکار را وارد کنید.";return}
+ if(!/^(\+98|0098|0)?9\d{9}$/.test(ph.replace(/[۰-۹]/g,d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d)))){m.className="err";m.textContent="شماره موبایل معتبر وارد کنید.";return}
+ if(SITE.formEndpoint){
+  try{const r=await fetch(SITE.formEndpoint,{method:"POST",headers:{Accept:"application/json"},body:new FormData(f)});
+   if(!r.ok)throw 0}catch(_){m.className="err";m.textContent="ارسال نشد، دوباره تلاش کنید.";return}
+ }
+ m.className="ok";m.textContent="درخواست شما ثبت شد. به‌زودی تماس می‌گیریم.";f.reset();
+});
+</script>
+</body>
+</html>
